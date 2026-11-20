@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue'
 import AppSidebar from './components/layout/AppSidebar.vue'
 import AppHeader from './components/layout/AppHeader.vue'
 import MobileTabBar from './components/layout/MobileTabBar.vue'
+import { useMediaQuery } from './composables/useMediaQuery'
 
-const desktopQuery = window.matchMedia('(min-width: 1024px)')
-const isDesktop = ref(desktopQuery.matches)
-const sync = (e: MediaQueryListEvent) => (isDesktop.value = e.matches)
-
-onMounted(() => desktopQuery.addEventListener('change', sync))
-onBeforeUnmount(() => desktopQuery.removeEventListener('change', sync))
+const isDesktop = useMediaQuery('(min-width: 1024px)')
 </script>
 
 <template>
