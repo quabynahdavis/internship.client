@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { Bookmark, Info, MousePointerClick, SearchX } from '@lucide/vue'
 import PageHeader from '../components/ui/PageHeader.vue'
@@ -9,6 +9,7 @@ import FilterBar from '../components/discover/FilterBar.vue'
 import InternshipRow from '../components/discover/InternshipRow.vue'
 import InternshipDetail from '../components/discover/InternshipDetail.vue'
 import RowSkeleton from '../components/discover/RowSkeleton.vue'
+import ApplyDrawer from '../components/discover/ApplyDrawer.vue'
 import { useDiscovery, type SortKey } from '../stores/discovery'
 import { useProfile } from '../stores/profile'
 import { useSaved } from '../stores/saved'
@@ -22,6 +23,8 @@ const { completeness, sections } = useProfile()
 const { savedIds, isSaved, toggleSaved } = useSaved()
 const { applicationFor } = useApplications()
 const isWide = useMediaQuery('(min-width: 1280px)')
+const applyingId = ref<string | null>(null)
+const applying = computed(() => scored.value.find((s) => s.internship.id === applyingId.value)?.internship ?? null)
 
 const SORTS: { value: SortKey; label: string }[] = [
   { value: 'match', label: 'Best match' },
@@ -50,7 +53,7 @@ function closeDetail() {
 }
 
 function startApply(id: string) {
-  select(id)
+  applyingId.value = id
 }
 </script>
 
@@ -186,6 +189,8 @@ function startApply(id: string) {
         </button>
       </template>
     </AppDrawer>
+
+    <ApplyDrawer :open="Boolean(applying)" :internship="applying" @close="applyingId = null" />
   </div>
 </template>
 
