@@ -2,7 +2,11 @@
    Design tokens
    ------------------------------------------------------------------ */
 :root {
-  --font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Outfit Variable', 'Outfit', 'Avenir Next', 'Segoe UI', sans-serif;
+  --brand-blue: #00a1e5;
+  --brand-navy: #030355;
+  --brand-purple: #7070ef;
+  --brand-coral: #fd5440;
   --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, Consolas, monospace;
 
   --s-1: 4px;
@@ -25,31 +29,31 @@
   --dur-fast: 150ms;
   --dur-panel: 220ms;
 
-  /* Light theme */
-  --canvas: #f8fafc;
+  /* Light theme — Bandwidth Global palette, button blue darkened for 4.5:1 */
+  --canvas: #f9fbfc;
   --surface: #ffffff;
-  --surface-hover: #f1f5f9;
-  --surface-sunken: #f1f5f9;
-  --border: #e2e8f0;
-  --border-strong: #8a96a8;
+  --surface-hover: #edf2f4;
+  --surface-sunken: #f7f7ff;
+  --border: #d7e1e6;
+  --border-strong: #6d7c84;
 
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #526071;
+  --text-primary: #030355;
+  --text-secondary: #333333;
+  --text-muted: #5f6360;
 
-  --accent: #1d4ed8;
-  --accent-hover: #1e40af;
-  --accent-text: #1d4ed8;
-  --accent-soft: rgba(29, 78, 216, 0.08);
-  --accent-soft-border: rgba(29, 78, 216, 0.25);
+  --accent: #0077a8;
+  --accent-hover: #006488;
+  --accent-text: #006488;
+  --accent-soft: rgba(0, 161, 229, 0.1);
+  --accent-soft-border: rgba(0, 119, 168, 0.35);
   --on-accent: #ffffff;
 
-  --focus-ring: #1d4ed8;
+  --focus-ring: #0077a8;
 
-  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 12px rgba(15, 23, 42, 0.06);
-  --shadow-lg: 0 1px 2px rgba(15, 23, 42, 0.06), 0 12px 32px rgba(15, 23, 42, 0.12);
-  --scrim: rgba(15, 23, 42, 0.4);
+  --shadow-sm: 0 1px 2px rgba(3, 3, 85, 0.04);
+  --shadow-md: 0 1px 2px rgba(3, 3, 85, 0.04), 0 8px 24px rgba(3, 3, 85, 0.06);
+  --shadow-lg: 0 1px 2px rgba(3, 3, 85, 0.06), 0 16px 40px rgba(3, 3, 85, 0.12);
+  --scrim: rgba(3, 3, 85, 0.4);
 
   --success-fg: #065f46;
   --success-bg: rgba(16, 185, 129, 0.12);
@@ -74,24 +78,25 @@
 }
 
 :root[data-theme='dark'] {
-  --canvas: #0b0c0e;
-  --surface: #121418;
-  --surface-hover: #1a1d24;
-  --surface-sunken: #0f1114;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.32);
+  --canvas: #07071a;
+  --surface: #12122b;
+  --surface-hover: #1c1c3a;
+  --surface-sunken: #0c0c22;
+  --border: rgba(192, 236, 255, 0.12);
+  --border-strong: rgba(192, 236, 255, 0.38);
 
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #94a3b8;
+  --text-primary: #f7f7ff;
+  --text-secondary: #c9d4dc;
+  --text-muted: #9aabba;
 
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
-  --accent-text: #93c5fd;
-  --accent-soft: rgba(96, 165, 250, 0.1);
-  --accent-soft-border: rgba(96, 165, 250, 0.3);
+  --accent: #00a1e5;
+  --accent-hover: #3db8ee;
+  --accent-text: #7ad4ff;
+  --accent-soft: rgba(0, 161, 229, 0.14);
+  --accent-soft-border: rgba(0, 161, 229, 0.4);
+  --on-accent: #030355;
 
-  --focus-ring: #93c5fd;
+  --focus-ring: #7ad4ff;
 
   --shadow-sm: inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --shadow-md: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -157,10 +162,10 @@ h4 {
 }
 
 h1 {
-  font-size: 1.75rem;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
 }
 
 h2 {
@@ -304,9 +309,9 @@ ol {
   min-height: 40px;
   padding: 0 var(--s-4);
   border: 1px solid transparent;
-  border-radius: var(--r-md);
+  border-radius: var(--r-full);
   font-size: 0.875rem;
-  font-weight: 550;
+  font-weight: 600;
   line-height: 1;
   white-space: nowrap;
   text-decoration: none;
@@ -324,7 +329,7 @@ ol {
 }
 
 .btn:active:not(:disabled) {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 .btn:disabled,
@@ -382,7 +387,7 @@ ol {
   height: 40px;
   padding: 0;
   border: 1px solid transparent;
-  border-radius: var(--r-md);
+  border-radius: var(--r-full);
   background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
@@ -781,7 +786,7 @@ fieldset.field > legend {
    ------------------------------------------------------------------ */
 @media (max-width: 767px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
   }
 
   .btn {

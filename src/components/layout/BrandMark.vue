@@ -1,9 +1,10 @@
 <template>
   <RouterLink to="/" class="brand" aria-label="InternHub home">
-    <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect width="32" height="32" rx="8" fill="var(--accent)" />
-      <path d="M10 9.5h4v13h-4zM18 15.5h4v7h-4z" fill="#fff" />
-      <path d="M18 9.5h4v3.5h-4z" fill="#93C5FD" />
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <rect width="32" height="32" rx="8" fill="var(--brand-navy)" />
+      <rect x="7" y="7" width="8" height="18" rx="1.5" fill="var(--brand-blue)" />
+      <rect x="17" y="7" width="8" height="8" rx="1.5" fill="var(--brand-purple)" />
+      <rect x="17" y="17" width="8" height="8" rx="1.5" fill="var(--brand-coral)" />
     </svg>
     <span class="brand__name">InternHub</span>
   </RouterLink>
@@ -22,8 +23,9 @@
 }
 
 .brand__name {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 650;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 </style>

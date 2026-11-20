@@ -9,7 +9,7 @@ watch(
   theme,
   (value) => {
     document.documentElement.dataset.theme = value
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value === 'dark' ? '#0b0c0e' : '#f8fafc')
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value === 'dark' ? '#07071a' : '#f9fbfc')
     try {
       localStorage.setItem(KEY, value)
     } catch {}
