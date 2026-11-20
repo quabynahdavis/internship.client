@@ -1,10 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>client</title>
+    <meta name="description" content="Build your student profile, discover verified internships matched to your region, skills and availability, and apply directly." />
+    <meta name="theme-color" content="#f8fafc" />
+    <title>InternHub — Student Internship Portal</title>
+    <script>
+      try {
+        var t = localStorage.getItem('ih:theme');
+        if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="app"></div>

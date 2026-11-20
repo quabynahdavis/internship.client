@@ -1,7 +1,5 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <HelloWorld />
+  <main style="padding: 32px">
+    <h1>InternHub</h1>
+  </main>
 </template>
