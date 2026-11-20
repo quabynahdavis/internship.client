@@ -102,6 +102,16 @@ export function matchInternship(profile: StudentProfile, internship: Internship)
   return { score, reasons, matchedSkills, missingSkills }
 }
 
+export type FitTier = 'strong' | 'possible' | 'stretch'
+
+/** Strong = location, skills and dates all line up; stretch = at least one is a clear miss. */
+export function fitTier(result: MatchResult): FitTier {
+  const core = result.reasons.filter((r) => r.key === 'region' || r.key === 'skills' || r.key === 'window')
+  if (core.every((r) => r.level === 'full')) return 'strong'
+  if (core.some((r) => r.level === 'none')) return 'stretch'
+  return 'possible'
+}
+
 /** Reasons worth surfacing on compact list rows. */
 export function headlineReasons(result: MatchResult): MatchReason[] {
   const order: MatchReason['key'][] = ['region', 'skills', 'window', 'mode']
