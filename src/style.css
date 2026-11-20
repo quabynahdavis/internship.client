@@ -209,6 +209,10 @@ ol {
   outline-offset: 2px;
 }
 
+.scroll-locked {
+  overflow: hidden;
+}
+
 ::selection {
   background: var(--accent-soft-border);
 }
