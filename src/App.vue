@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AppSidebar from './components/layout/AppSidebar.vue'
 import AppHeader from './components/layout/AppHeader.vue'
 import MobileTabBar from './components/layout/MobileTabBar.vue'
 import { useMediaQuery } from './composables/useMediaQuery'
@@ -10,26 +9,17 @@ const isDesktop = useMediaQuery('(min-width: 1024px)')
 <template>
   <a href="#main" class="skip-link">Skip to main content</a>
   <div class="shell">
-    <AppSidebar v-if="isDesktop" />
-    <div class="shell__body">
-      <AppHeader />
-      <main id="main" class="shell__main" tabindex="-1">
-        <RouterView />
-      </main>
-    </div>
+    <AppHeader />
+    <main id="main" class="shell__main" tabindex="-1">
+      <RouterView />
+    </main>
   </div>
   <MobileTabBar v-if="!isDesktop" />
 </template>
 
 <style scoped>
 .shell {
-  display: flex;
   min-height: 100vh;
-}
-
-.shell__body {
-  flex: 1;
-  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -37,9 +27,9 @@ const isDesktop = useMediaQuery('(min-width: 1024px)')
 .shell__main {
   flex: 1;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1180px;
   margin: 0 auto;
-  padding: var(--s-8) var(--s-8) var(--s-16);
+  padding: var(--s-12) var(--s-8) var(--s-16);
 }
 
 .shell__main:focus {
@@ -48,7 +38,7 @@ const isDesktop = useMediaQuery('(min-width: 1024px)')
 
 @media (max-width: 1023px) {
   .shell__main {
-    padding: var(--s-6) var(--s-4) calc(var(--s-16) + var(--s-8));
+    padding: var(--s-8) var(--s-4) calc(var(--s-16) + var(--s-8));
   }
 }
 </style>
